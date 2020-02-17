@@ -27,7 +27,7 @@
 		var date = getUrlParam('date','');
 		
 		$.get('https://hellocoba.herokuapp.com/api/hello',function(data, status){
-			$("#kq").html(data);
+			$("#kq").text(data);
 		});		
     });
 </script>
@@ -35,7 +35,7 @@
 </head>
 
 <body>    
-<p id="kq"></p>    
+<span id="kq"></span>    
 </body>
 </html>
 
