@@ -1,8 +1,41 @@
+<!DOCTYPE html>
 <html>
-    <head>
-        <title>HelloCoBa</title>
-    </head>    
-    <body>
-        <h1>Hello CoBa</h1>
-    </body>
+<head>
+    <title>Hello</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>	
+	<script>
+    
+    $(function () {
+			 
+		function getUrlVars() {
+			var vars = {};
+			var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+				vars[key] = value;
+			});
+			return vars;
+		}
+		
+		function getUrlParam(parameter, defaultvalue){
+			var urlparameter = defaultvalue;
+			if(window.location.href.indexOf(parameter) > -1){
+				urlparameter = getUrlVars()[parameter];
+				}
+			return urlparameter;
+		}
+			
+		var date = getUrlParam('date','');
+		
+		$.get('http://b11.cnnd.vn/social/api/test/hello',function(data, status){
+			$("#kq").html(data);
+		});		
+    });
+</script>
+    	
+</head>
+
+<body>    
+<p id="kq"></p>    
+</body>
 </html>
+
